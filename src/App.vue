@@ -2,21 +2,15 @@
   <v-app>
     <v-app-bar app color="primary" dark> </v-app-bar>
     <v-content>
-      <Menu/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Menu from './components/menu/Menu'
 
 export default {
   name: 'App',
-
-  components: {
-    Menu,
-  },
-
   data: () => ({
     //
   }),

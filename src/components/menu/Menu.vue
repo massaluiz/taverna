@@ -6,7 +6,7 @@
             <v-item>
                 <v-card color="primary" class="d-flex align-center" dark height="200">
                     <v-scroll-y-transition>
-                        <div class="display-3 flex-grow-1 text-center">Classes</div>
+                        <div class="display-3 flex-grow-1 text-center" @click="$router.push('/classes')">Classes</div>
                     </v-scroll-y-transition>
                 </v-card>
             </v-item>
