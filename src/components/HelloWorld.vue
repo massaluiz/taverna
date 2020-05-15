@@ -87,11 +87,35 @@
           </a>
         </v-row>
       </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-3">
+          Classes
+        </h2>
+
+        <v-row justify="center">
+          <a
+            v-for="(eco, i) in classes"
+            :key="i"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ eco.name }}
+          </a>
+        </v-row>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+
+  import axios from 'axios';
+  import config from './../config/config'
+
   export default {
     name: 'HelloWorld',
 
@@ -146,6 +170,15 @@
           href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
         },
       ],
+      classes: []
     }),
+    created() {
+
+      axios.get(`${config.apiURL}classes/`).then((res) => {
+            this.classes = res.data.results;
+            console.log(res.data.results);
+        });
+
+    }
   }
 </script>
