@@ -1,49 +1,37 @@
 <template>
-    <v-container fluid>
-      <v-row dense>
-        <v-col
-          v-for="card in cards"
-          :key="card.title"
-          :cols="card.flex">
-          <v-card>
-            <v-img
-              :src="card.src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="500px">
-              <v-card-title v-text="card.title"></v-card-title>
-            </v-img>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-tabs>
-        <v-tab v-for="c of classes" :key="c.name">{{ c.name }}</v-tab>
-      </v-tabs>
-    </v-container>
+  <v-container fluid>
+    <v-card class="mx-auto" max-width="344" v-for='tclass of classes' :key="tclass.name">
+      <v-card-text>
+        <div>Class</div>
+        <p class="display-1 text--primary">
+          {{ tclass.name }}
+        </p>
+        <p>Description</p>
+        <div class="text--primary">
+          {{ tclass.desc }}
+        </div>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 
   import axios from '../../axios';
+  import ClassesController  from '../../controller/ClassesController';
 
   export default {
     name: 'Classes',
     data: () => ({
-      cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 3 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
-      ],
       classes: []
     }),
     created() {
 
-      axios.get(`classes/`).then((res) => {
-            this.classes = res.data.results;
-            console.log(res.data.results);
-        });
-
+      this.classesController = new ClassesController(axios);
+      this.classesController.getList().then((classes) => {
+        this.classes = classes;
+      })
+      
     }
   }
 </script>
