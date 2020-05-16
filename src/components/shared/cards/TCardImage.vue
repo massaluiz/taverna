@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
       <v-row dense>
-        <v-col v-for="tclass in classes" :key="tclass.name" cols="4">
-          <v-card class="mx-auto">
-            <v-img :src="tclass.src" class="white--text align-end t-card-image" >
+        <v-col v-for="tclass in classes" :key="tclass.name" cols="12" md="6">
+          <v-card>
+            <v-img :src="tclass.src" class="white lighten-2" aspect-ratio="1" max-height="550" contain>
               <v-card-title class="text--primary" v-text="tclass.name"></v-card-title>
             </v-img>
 
@@ -13,7 +13,7 @@
             <v-divider class="mx-4"></v-divider>
 
             <v-card-subtitle>
-            Dice Hit: {{ tclass.hitDice }} <br/> Skills: {{ tclass.profSkills }} 
+            <span class="bold">Dice Hit:</span> {{ tclass.hitDice }} <br/><span class="bold">Skills:</span> {{ tclass.profSkills }} 
             </v-card-subtitle>
 
             <v-card-actions>
@@ -25,6 +25,7 @@
         </v-col>
       </v-row>
     </v-container>
+    
 </template>
 
 <script>
@@ -38,6 +39,9 @@
     .t-card-image {
         width: 100%;
         height: auto;
-        vertical-align: middle;
+    }
+
+    .bold {
+       font-weight: bold;
     }
 </style>
