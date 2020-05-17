@@ -40,30 +40,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-  .background-class-image {
-    background-image: url('https://cdn.wallpapersafari.com/64/27/HjuL79.jpg'); 
-    width: 100%; 
-    height: 150px; 
-    background-size: 100%;
-  }
-
-  .background-race-image {
-    background-image: url('https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/03_NEW-TO-DnD_Races_Heroes_Hero_140725.jpg'); 
-    width: 100%; 
-    height: 150px; 
-    background-size: 100%;
-  }
-
-  .background-step {
-    background-image: url('https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/02_Subsection_Hero_TiamatKeyArt_140714_0.jpg'); 
-    width: 100%; 
-    height: 150px; 
-    background-size: 100%;
-  }
-
-  .bold {
-    font-weight: bold;
-  }
-</style>

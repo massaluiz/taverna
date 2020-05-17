@@ -5,7 +5,7 @@
       <v-btn class="modify" @click="nav('menu')">
         Home
       </v-btn>
-      <v-btn class="modify" @click="nav('classes')">
+      <v-btn class="hidden-xs-only modify" @click="nav('classes')">
         Classes
       </v-btn>
       <v-toolbar-title>Tavern</v-toolbar-title>
