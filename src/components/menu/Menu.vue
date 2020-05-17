@@ -4,9 +4,9 @@
       <v-row>
         <v-col>
             <v-item>
-                <v-card class="d-flex align-center background-class-image" dark height="200">
+                <v-card class="d-flex align-center background-class-image" dark height="200" @click="$router.push('/classes')">
                     <v-scroll-y-transition>
-                        <div class="display-3 flex-grow-1 text-center" @click="$router.push('/classes')"><span class="bold">Classes</span></div>
+                        <div class="display-3 flex-grow-1 text-center"><span class="bold">Classes</span></div>
                     </v-scroll-y-transition>
                 </v-card>
             </v-item>

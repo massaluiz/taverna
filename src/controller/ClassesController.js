@@ -16,31 +16,8 @@ export default class ClassesController {
 
                     let resultCall = res.data.results;
                     let classes = [];
-                    /**Objeto que contém centralizado as imagens usadas por classe, dado ao fato da API não fornecer essa informação */
-                    let classesSrc = [
-                        {name: 'Barbarian', src: 'https://vignette.wikia.nocookie.net/eladriells-dd/images/9/99/Barbarian.jpg/revision/latest/scale-to-width-down/340?cb=20190331084929'},
-                        {name: 'Bard', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/369/420/618/636272705936709430.png'},
-                        {name: 'Cleric', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/371/420/618/636272706155064423.png'},
-                        {name: 'Druid', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/346/420/618/636272691461725405.png'},
-                        {name: 'Fighter', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/359/420/618/636272697874197438.png'},
-                        {name: 'Monk', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/489/420/618/636274646181411106.png'},
-                        {name: 'Paladin', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png'},
-                        {name: 'Ranger', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/367/420/618/636272702826438096.png'},
-                        {name: 'Rogue', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/384/420/618/636272820319276620.png'},
-                        {name: 'Sorcerer', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/485/420/618/636274643818663058.png'},
-                        {name: 'Warlock', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/375/420/618/636272708661726603.png'},
-                        {name: 'Wizard', src: 'https://i.pinimg.com/originals/66/22/2f/66222f555b0073f5ab2a8fb5c92bd812.jpg'},
-                    ];
+                    
                     resultCall.forEach(tclass => {
-
-                        let src = '';
-                        classesSrc.forEach(tsrc => {
-                            if(tclass.name == tsrc.name) {
-                                src = tsrc.src;
-                                return;
-                            }
-
-                        });
 
                         classes.push(
                             new Classes(tclass.name,
@@ -54,7 +31,7 @@ export default class ClassesController {
                                         tclass.prof_skills,
                                         tclass.pro_weapons,
                                         tclass.table,
-                                        src)
+                                        this.getImageFromClass(tclass))
                         );
                     });
 
@@ -64,5 +41,59 @@ export default class ClassesController {
                 reject(error);
             }
         });
+    }
+
+    getByName(nameClass) {
+        return new Promise((resolve, reject) => {
+            try {
+                this._axiosResource.get(`classes/${nameClass}`).then((response) => {
+                    let tclass = new Classes(response.data.name,
+                                        response.data.desc,
+                                        response.data.equipment,
+                                        response.data.hit_dice,
+                                        response.data.hp_at_1st_level,
+                                        response.data.hp_at_higher_levels,
+                                        response.data.prof_armor,
+                                        response.data.prof_saving_throws,
+                                        response.data.prof_skills,
+                                        response.data.pro_weapons,
+                                        response.data.table,
+                                        this.getImageFromClass(response.data));
+                    resolve(tclass);
+                })
+            } catch(error) {
+                reject(error);
+            }
+        });
+    }
+
+
+    getImageFromClass(tclass) {
+        /**Objeto que contém centralizado as imagens usadas por classe, dado ao fato da API não fornecer essa informação */
+        let classesSrc = [
+            {name: 'Barbarian', src: 'https://vignette.wikia.nocookie.net/eladriells-dd/images/9/99/Barbarian.jpg/revision/latest/scale-to-width-down/340?cb=20190331084929'},
+            {name: 'Bard', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/369/420/618/636272705936709430.png'},
+            {name: 'Cleric', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/371/420/618/636272706155064423.png'},
+            {name: 'Druid', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/346/420/618/636272691461725405.png'},
+            {name: 'Fighter', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/359/420/618/636272697874197438.png'},
+            {name: 'Monk', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/489/420/618/636274646181411106.png'},
+            {name: 'Paladin', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/365/420/618/636272701937419552.png'},
+            {name: 'Ranger', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/367/420/618/636272702826438096.png'},
+            {name: 'Rogue', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/384/420/618/636272820319276620.png'},
+            {name: 'Sorcerer', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/485/420/618/636274643818663058.png'},
+            {name: 'Warlock', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/375/420/618/636272708661726603.png'},
+            {name: 'Wizard', src: 'https://i.pinimg.com/originals/66/22/2f/66222f555b0073f5ab2a8fb5c92bd812.jpg'},
+        ];
+
+
+        let src = '';
+        classesSrc.forEach(tsrc => {
+            if(tclass.name == tsrc.name) {
+                src = tsrc.src;
+                return;
+            }
+        });
+
+        return src;
     }
 }

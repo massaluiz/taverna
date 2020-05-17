@@ -29,15 +29,15 @@
       this.classesController = new ClassesController(axios);
       this.classesController.getList().then((classes) => {
         this.classes = classes;
-      })
+      });
       
     },
     data: () => ({
       classes: []
     }),
     methods: {
-      goToClass(classes) {
-        console.log(classes);
+      goToClass(tclass) {
+        this.$router.push({name: 'classDetail', params: {class: tclass.name.toLowerCase()}});
       }
     }
   }
