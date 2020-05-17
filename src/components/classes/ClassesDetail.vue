@@ -21,10 +21,18 @@
             <h2>Equipment</h2>
             <br/>
             <p>{{ tclass.equipment }}</p>
+            <!--SESSÃO REMOVIDA PELA COMPLEXIDADE DA INFORMAÇÃO DADA PELA API-->
+            <!--<h2>Table Evolution</h2>
             <br/>
-            <h2>Table Evolution</h2>
-            <br/>
-            <div>{{ tclass.table }}</div>
+            <table>
+                <tr v-for="td of table" :key="td.id">
+                    <td>{{td}}</td>
+                    <td>{{td}}</td>
+                    <td>{{td}}</td>
+                    <td>{{td}}</td>
+                    <td>{{td}}</td>
+                </tr>
+            </table>-->
             <br/>
             <h2>Class Abilities</h2>
             <br/>
@@ -64,12 +72,22 @@ export default {
                     this.descriptionSession.push({title, content});
                 }
             });
+
+            /*SESSÃO REMOVIDA PELA COMPLEXIDADE DA INFORMAÇÃO DADA PELA API-->*/
+            /*let tableArray = tclass.table.split("|");
+            let i = 13;
+            for (i; i < tableArray.length; i++) {
+
+                this.table.push(tableArray[i]);
+                console.log(tableArray[i]);
+            }*/
         })
     },
     data() {
         return {
             tclass: {},
-            descriptionSession: []
+            descriptionSession: [],
+            table: []
         }
     }
 }
