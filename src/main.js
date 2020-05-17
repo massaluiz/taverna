@@ -3,6 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router';
 import { routes } from './routes';
+import './ml';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
