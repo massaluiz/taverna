@@ -1,15 +1,14 @@
 <template>
   <v-app>
     <div>
-    <v-toolbar dark prominen src="https://i.imgur.com/0PiJvwg.jpg">
-      <v-btn icon class="hidden-xs-only" @click="back()">
+    <v-toolbar dark prominent src="https://i.imgur.com/0PiJvwg.jpg">
+      <v-btn class="modify" @click="nav('menu')">
         Home
       </v-btn>
-      <v-toolbar-title>Tavern</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-export</v-icon>
+      <v-btn class="modify" @click="nav('classes')">
+        Classes
       </v-btn>
+      <v-toolbar-title>Tavern</v-toolbar-title>
     </v-toolbar>
     </div>
     <v-content>
@@ -26,9 +25,17 @@ export default {
     //
   }),
   methods: {
-    back() {
-       this.$router.push({name: 'menu'});
+    nav(where) {
+       this.$router.push({name: where});
     }
+
+
   }
 };
 </script>
+
+<style scoped>
+  .modify {
+    background-color: transparent !important;
+  }
+</style>
