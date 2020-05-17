@@ -3,7 +3,7 @@
     <div>
     <v-toolbar dark prominen src="https://i.imgur.com/0PiJvwg.jpg">
       <v-btn icon class="hidden-xs-only" @click="back()">
-        Back
+        Home
       </v-btn>
       <v-toolbar-title>Tavern</v-toolbar-title>
       <v-spacer></v-spacer>

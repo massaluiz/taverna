@@ -11,7 +11,6 @@
                 <div>{{ tclass.desc.substring(1, 250) }} ...</div>
             </v-card-text>
             <v-divider class="mx-4"></v-divider>
-
             <v-card-subtitle>
             <span class="bold">Dice Hit:</span> {{ tclass.hitDice }} <br/><span class="bold">Skills:</span> {{ tclass.profSkills }} 
             </v-card-subtitle>
