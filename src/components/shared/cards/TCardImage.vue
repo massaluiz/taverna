@@ -10,7 +10,7 @@
       </v-card-text>
       <v-divider class="mx-4"></v-divider>
       <v-card-subtitle>
-      <span class="bold">Dice Hit:</span> {{ hitDice }} <br/><span class="bold">Skills:</span> {{ profSkills }} 
+      <span class="bold">Dice Hit:</span> {{ hitDice }} <br/><span class="bold">Saving Throws:</span> {{ profSavingThrows }} 
       </v-card-subtitle>
 
       <v-card-actions>
@@ -42,7 +42,7 @@
         type: String,
         required: true
       },
-      profSkills: {
+      profSavingThrows: {
         type: String,
         required: true
       }

@@ -1,13 +1,13 @@
 <template>
   <v-container fluid>
     <v-row dense>
-      <v-col v-for="tclass in classes" :key="tclass.name" cols="12" md="6"> 
+      <v-col v-for="tclass in classes" :key="tclass.name" cols="12" md="4"> 
         <t-card-image @goToClass="goToClass(tclass)" :key="tclass.name"
                       :name="tclass.name"
                       :src="tclass.src"
                       :desc="tclass.desc"
                       :hitDice="tclass.hitDice"
-                      :profSkills="tclass.profSkills"></t-card-image>
+                      :profSavingThrows="tclass.profSavingThrows"></t-card-image>
       </v-col>
     </v-row>
   </v-container>
