@@ -16,6 +16,7 @@ export default class ClassesController {
 
                     let resultCall = res.data.results;
                     let classes = [];
+                    /**Objeto que contém centralizado as imagens usadas por classe, dado ao fato da API não fornecer essa informação */
                     let classesSrc = [
                         {name: 'Barbarian', src: 'https://vignette.wikia.nocookie.net/eladriells-dd/images/9/99/Barbarian.jpg/revision/latest/scale-to-width-down/340?cb=20190331084929'},
                         {name: 'Bard', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/369/420/618/636272705936709430.png'},
@@ -34,14 +35,12 @@ export default class ClassesController {
 
                         let src = '';
                         classesSrc.forEach(tsrc => {
-                            console.log(tclass.name, tsrc.name)
                             if(tclass.name == tsrc.name) {
                                 src = tsrc.src;
                                 return;
                             }
 
                         });
-
 
                         classes.push(
                             new Classes(tclass.name,

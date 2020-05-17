@@ -1,6 +1,15 @@
 <template>
   <v-container fluid>
-    <t-card-image :classes="classes"></t-card-image>
+    <v-row dense>
+      <v-col v-for="tclass in classes" :key="tclass.name" cols="12" md="6"> 
+        <t-card-image @goToClass="goToClass(tclass)" :key="tclass.name"
+                      :name="tclass.name"
+                      :src="tclass.src"
+                      :desc="tclass.desc"
+                      :hitDice="tclass.hitDice"
+                      :profSkills="tclass.profSkills"></t-card-image>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -15,9 +24,6 @@
     components: {
       't-card-image': TCardImage
     },
-    data: () => ({
-      classes: []
-    }),
     created() {
 
       this.classesController = new ClassesController(axios);
@@ -25,6 +31,14 @@
         this.classes = classes;
       })
       
+    },
+    data: () => ({
+      classes: []
+    }),
+    methods: {
+      goToClass(classes) {
+        console.log(classes);
+      }
     }
   }
 </script>
