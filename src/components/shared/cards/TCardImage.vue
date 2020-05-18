@@ -1,8 +1,13 @@
 <template>
   <v-container fluid>
     <v-card>
-      <v-img :src="src" class="white lighten-2" aspect-ratio="1" max-height="550" contain>
-        <v-card-title class="text--primary" v-text="name"></v-card-title>
+      <v-img class="white lighten-2"
+             aspect-ratio="1" 
+             max-height="550" 
+             contain 
+             :src="src">
+        <v-card-title class="text--primary" 
+                      v-text="name"></v-card-title>
       </v-img>
 
       <v-card-text class="text--primary">
@@ -10,7 +15,8 @@
       </v-card-text>
       <v-divider class="mx-4"></v-divider>
       <v-card-subtitle>
-      <span class="bold">Dice Hit:</span> {{ hitDice }} <br/><span class="bold">Saving Throws:</span> {{ profSavingThrows }} 
+        <span class="bold">Dice Hit:</span> {{ hitDice }} 
+        <span class="bold">Saving Throws:</span> {{ profSavingThrows }} 
       </v-card-subtitle>
 
       <v-card-actions>

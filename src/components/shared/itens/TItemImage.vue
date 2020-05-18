@@ -1,9 +1,14 @@
 <template>
     <v-container>
         <v-item>
-            <v-card class="d-flex align-center" :class="chooseStyle" @click="goToWhere()" dark height="200">
+            <v-card class="d-flex align-center" 
+                    dark height="200" 
+                    :class="chooseStyle" 
+                    @click="goToWhere()">
                 <v-scroll-y-transition>
-                    <div class="display-3 flex-grow-1 text-center"><span class="bold">{{ title }}</span></div>
+                    <div class="display-3 flex-grow-1 text-center">
+                      <span class="bold">{{ title }}</span>
+                    </div>
                 </v-scroll-y-transition>
             </v-card>
         </v-item>

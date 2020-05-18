@@ -2,7 +2,7 @@
   <v-app>
     <div>
       <v-toolbar dark prominent src="https://i.imgur.com/0PiJvwg.jpg">
-        <v-btn v-for="menuItem in routes" :key="menuItem" 
+        <v-btn v-for="menuItem in routes" :key="menuItem.id" 
                class="modify" 
                @click="nav(menuItem.title)" 
                v-text="$ml.get(menuItem.title)"></v-btn>

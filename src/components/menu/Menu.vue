@@ -37,6 +37,5 @@ export default {
         this.$router.push(where);
       }
     }
-
 }
 </script>
