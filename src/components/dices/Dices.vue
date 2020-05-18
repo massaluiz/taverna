@@ -2,13 +2,13 @@
     <v-container class="grey lighten-5">
     <v-row align="center">
       <v-col class="d-flex" cols="12" sm="4">
-        <v-text-field label="Nome do Dado" 
+        <v-text-field :label="$ml.get('dice-name')"
                         :rules="rules"
                         v-model="dice.name"
                         @change="onChangeRequired"></v-text-field>
       </v-col>
       <v-col class="d-flex" cols="12" sm="4">
-         <v-select label="Qtd Lados"
+         <v-select :label="$ml.get('qtd-sides')"
                    :items="items"
                    :rules="rules"
                    :menu-props="{ top: true, offsetY: true }"
@@ -19,12 +19,12 @@
          <div class="my-2">
             <v-btn color="primary"
                    dark
-                   @click="create">Criar</v-btn>
+                   @click="create">{{ $ml.get('create') }}</v-btn>
           </div>
       </v-col>
     </v-row>
     <v-alert v-show="required" type="error">
-        Required fields...
+        {{ $ml.get('required-fiels') }}
     </v-alert>
   </v-container>
 </template>
