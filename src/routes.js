@@ -5,10 +5,10 @@ import Create from './components/create/Create.vue';
 import Dices from './components/shared/dices/Dices.vue';
 
 export const routes = [
-    {path:'', name: 'menu', component: Menu},
-    {path:'/classes', name:"classes", component: Classes},
-    {path:'/classes/:class', name: 'classDetail', component: ClassesDetail},
-    {path:'/create', name: 'create', component: Create},
-    {path:'/dices', name: 'dices', component: Dices},
+    {path:'', name: 'home', component: Menu, title: 'home', inMenu: true},
+    {path:'/classes', name:"classes", component: Classes, title: 'classes', inMenu: true},
+    {path:'/classes/:class', name: 'classDetail', component: ClassesDetail, title: 'classDetail', inMenu: false},
+    {path:'/create', name: 'create', component: Create, title: 'Step-by-Step Characters', inMenu: false},
+    {path:'/dices', name: 'dices', component: Dices, title: 'dices', inMenu: true},
     {path:'*', component: Menu}
 ];

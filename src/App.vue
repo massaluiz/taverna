@@ -2,12 +2,16 @@
   <v-app>
     <div>
       <v-toolbar dark prominent src="https://i.imgur.com/0PiJvwg.jpg">
-        <v-btn class="modify" @click="nav('menu')" v-text="$ml.get('home')"></v-btn>
-        <v-btn class="hidden-xs-only modify" @click="nav('classes')" v-text="$ml.get('classes')"></v-btn>
-        <v-btn class="hidden-xs-only modify" @click="nav('dices')" v-text="$ml.get('dices')"></v-btn>
+        <v-btn v-for="menuItem in routes" :key="menuItem" 
+               class="modify" 
+               @click="nav(menuItem.title)" 
+               v-text="$ml.get(menuItem.title)"></v-btn>
         <v-toolbar-title v-text="$ml.get('tavern')"></v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn class="modify" v-for="lang in $ml.list" :key="lang" @click="$ml.change(lang)" v-text="lang"></v-btn>
+        <v-btn v-for="lang in $ml.list" :key="lang" 
+               class="modify" 
+               @click="$ml.change(lang)" 
+               v-text="lang"></v-btn>
       </v-toolbar>
     </div>
     <v-content>
@@ -18,11 +22,15 @@
 
 <script>
 
+import { routes } from './routes';
+
 export default {
   name: 'App',
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      routes : routes.filter(route => route.inMenu)
+    }
+  },
   methods: {
     nav(where) {
        this.$router.push({name: where});
@@ -31,7 +39,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .modify {
     background-color: transparent !important;
   }
