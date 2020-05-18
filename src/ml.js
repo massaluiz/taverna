@@ -10,13 +10,14 @@ export default new MLCreate({
     new MLanguage('english').create({
       home: 'Home',
       classes: 'Classes',
-      tavern: 'Tavern'
+      tavern: 'Tavern',
+      dices: 'Dices'
     }),
  
     new MLanguage('portuguese').create({
       home: 'Inicio',
       classes: 'Classes',
-      tavern: 'Taverna'
+      dices: 'Dados'
     })
   ]
 })
