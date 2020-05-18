@@ -49,26 +49,37 @@ export default {
           name: '',
           sides:''
       },
-      required: false
+      required: true
     }),
     methods: {
         create() {
-            if(this.dice.name != '' && this.dice.sides != '') {
+
+            if(this.required) {
+
                 let dices = JSON.parse(localStorage.getItem('dices'));
                 if(dices==null){
                     dices = new Array();
                 }
+                let insertedDice = this.dice;
                 dices.push(this.dice);
                 localStorage.setItem('dices', JSON.stringify(dices));
-                this.dice = { name: '',sides:''};
+                this.dice = {name: '',sides:''};
+                return {inserted: this.required, dice: insertedDice};
+
+            } else {
+
+                return {inserted: this.required, dice: this.dice};
+                
             }
+
         },
         onChangeRequired() {
             if(this.dice.name != '' && this.dice.sides != '') {
-                this.required = false;  
+                this.required = true;  
             } else {
-                this.required = true;
+                this.required = false;
             }
+            return this.required;
         }
     }
 }

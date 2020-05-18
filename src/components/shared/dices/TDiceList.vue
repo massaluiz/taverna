@@ -37,6 +37,7 @@
         rollDice(dice) {
             this.result = dice.sides + " = " + parseInt(Math.random() * 
                            (parseInt(dice.sides.substring(2)) - 1) + 1);
+            return parseInt(Math.random() * (parseInt(dice.sides.substring(2)) - 1) + 1);
         }
     }
   }
