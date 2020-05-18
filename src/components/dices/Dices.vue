@@ -17,7 +17,7 @@
       </v-col>
       <v-col class="d-flex" cols="12" sm="4">
          <div class="my-2">
-            <v-btn color="primary"
+            <v-btn color="dark"
                    dark
                    @click="create">{{ $ml.get('create') }}</v-btn>
           </div>
@@ -26,11 +26,19 @@
     <v-alert v-show="required" type="error">
         {{ $ml.get('required-fiels') }}
     </v-alert>
+    <t-dice-list></t-dice-list>
   </v-container>
 </template>
 
 <script>
+
+import TDiceList from '../shared/dices/TDiceList';
+
 export default {
+    name: "Dices",
+    components: {
+        't-dice-list': TDiceList
+    },
     data: () => ({
       rules: [
         value => !!value || 'Required.',
