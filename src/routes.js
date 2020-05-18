@@ -2,7 +2,7 @@ import Menu from './components/menu/Menu.vue';
 import Classes from './components/classes/Classes.vue';
 import ClassesDetail from './components/classes/ClassesDetail.vue';
 import Create from './components/create/Create.vue';
-import Dices from './components/shared/dices/Dices.vue';
+import Dices from './components/dices/Dices.vue';
 
 export const routes = [
     {path:'', name: 'home', component: Menu, title: 'home', inMenu: true},
