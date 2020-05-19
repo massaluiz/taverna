@@ -30,7 +30,8 @@ export default new MLCreate({
       'skills': 'Skills:',
       'equipment': 'Equipment',
       'class-ability': 'Class Abilities',
-      'view-details': 'View Details'
+      'view-details': 'View Details',
+      'menu': 'Menu'
     }),
  
     new MLanguage('portuguese').create({
@@ -56,7 +57,8 @@ export default new MLCreate({
       'skills': 'Habilidades:',
       'equipment': 'Equipamentos',
       'class-ability': 'Habilidades da classe',
-      'view-details': 'Visualizar Detalhes'
+      'view-details': 'Visualizar Detalhes',
+      'menu': 'Menu'
     })
   ]
 })
