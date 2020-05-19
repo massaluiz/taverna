@@ -31,6 +31,11 @@
 <script>
 export default {
     name: 'ManuResponsive',
-    props: ['routes']
+    props: ['routes'],
+    methods: {
+        nav(where) {
+            this.$router.push({name: where});
+        }
+    }
 }
 </script>

@@ -35,11 +35,6 @@ export default {
     return {
       routes : routes.filter(route => route.inMenu)
     }
-  },
-  methods: {
-    nav(where) {
-       this.$router.push({name: where});
-    }
   }
 };
 </script>

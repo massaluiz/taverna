@@ -75,4 +75,19 @@ export default {
   .bold {
     font-weight: bold;
   }
+
+
+  @media screen and (max-width: 992px) {
+    .background-class-image {
+      background-image: none; 
+    }
+
+    .background-step-image {
+      background-image: none; 
+    }
+
+    .background-race-image {
+      background-image: none; 
+    }
+  }
 </style>
