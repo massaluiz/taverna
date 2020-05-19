@@ -56,7 +56,7 @@ export default class ClassesController {
                                         response.data.prof_armor,
                                         response.data.prof_saving_throws,
                                         response.data.prof_skills,
-                                        response.data.pro_weapons,
+                                        response.data.prof_weapons,
                                         response.data.table,
                                         this.getImageFromClass(response.data));
                     resolve(tclass);
@@ -84,7 +84,6 @@ export default class ClassesController {
             {name: 'Warlock', src: 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/375/420/618/636272708661726603.png'},
             {name: 'Wizard', src: 'https://i.pinimg.com/originals/66/22/2f/66222f555b0073f5ab2a8fb5c92bd812.jpg'},
         ];
-
 
         let src = '';
         classesSrc.forEach(tsrc => {

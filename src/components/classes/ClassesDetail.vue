@@ -2,43 +2,42 @@
     <v-card flat>
         <v-card-text>
             <h1>{{ tclass.name }}</h1>
-            <br/>
             <v-img :src="tclass.src" class="image"></v-img>
-            <br/>
-            <h2>Hit Points</h2>
-            <br/>
-            <p>Hit Dice: {{ tclass.hitDice }}</p>
-            <p>Hit Points at 1st Level: {{ tclass.hpAt1stLevel }}</p>
-            <p>Hit Points at Higher Levels: {{ tclass.hpAtHigherLevels }}</p>
-            <br/>
-            <h2>Proficiencies</h2>
-            <br/>
-            <p>Armor: {{ tclass.profArmor }}</p>
-            <p>Weapons: {{ tclass.profWeapons }}</p>
-            <p>Saving Throws: {{ tclass.profSavingThrows }}</p>
-            <p>Skills: {{ tclass.profSkills }}</p>
-            <br/>
-            <h2>Equipment</h2>
-            <br/>
+            <h2 class="spacing">Hit Points</h2>
+            <p>
+                <span class="bold">Hit Dice:</span> 
+                {{ tclass.hitDice }}
+            </p>
+            <p>
+                <span class="bold">Hit Points at 1st Level:</span>
+                 {{ tclass.hpAt1stLevel }}
+            <p>
+            <p>
+                <span class="bold">Hit Points at Higher Levels:</span>
+                {{ tclass.hpAtHigherLevels }}
+            </p>
+            <h2 class="spacing">Proficiencies</h2>
+            <p>
+                <span class="bold">Armor:</span> 
+                {{ tclass.profArmor }}
+            </p>
+            <p>
+                <span class="bold">Weapons:</span> 
+                {{ tclass.profWeapons }}
+            </p>
+            <p>
+                <span class="bold">Saving Throws:</span> 
+                {{ tclass.profSavingThrows }}
+            </p>
+            <p>
+                <span class="bold">Skills:</span> 
+                {{ tclass.profSkills }}
+            </p>
+            <h2 class="spacing">Equipment</h2>
             <p>{{ tclass.equipment }}</p>
-            <!--SESSÃO REMOVIDA PELA COMPLEXIDADE DA INFORMAÇÃO DADA PELA API-->
-            <!--<h2>Table Evolution</h2>
-            <br/>
-            <table>
-                <tr v-for="td of table" :key="td.id">
-                    <td>{{td}}</td>
-                    <td>{{td}}</td>
-                    <td>{{td}}</td>
-                    <td>{{td}}</td>
-                    <td>{{td}}</td>
-                </tr>
-            </table>-->
-            <br/>
-            <h2>Class Abilities</h2>
-            <br/>
+            <h2 class="spacing">Class Abilities</h2>
             <div v-for="session of descriptionSession" :key="session.id">
-                <h2>{{ session.title }}</h2>
-                <br/>
+                <h2 class="spacing">{{ session.title }}</h2>
                 <p>{{ session.content }}</p>
             </div>
         </v-card-text>
@@ -55,33 +54,24 @@ export default {
     created() {
 
         this.classesController = new ClassesController(axios);
-        this.classesController.getByName(this.$route.params.class).then((tclass) => {
-            
-            this.tclass = tclass;
-
-            this.tclass.desc.split("###").forEach(session => {
-                let words = session.split(" ");
-                if(words[1] != undefined) {
-                    let title = words[1] + " " + words[2] + " " + words[3];
-                    let position = title.indexOf('\n \n');
-                    if(position!=-1) {
-                        title = title.substring(0, position);
+        this.classesController.getByName(this.$route.params.class)
+            .then((tclass) => {
+                this.tclass = tclass;
+                /*manipulação dados API :/ */
+                this.tclass.desc.split("###").forEach(session => {
+                    let words = session.split(" ");
+                    if(words[1] != undefined) {
+                        let title = words[1] + " " + words[2] + " " + words[3];
+                        let position = title.indexOf('\n \n');
+                        if(position!=-1) {
+                            title = title.substring(0, position);
+                        }
+                        let content = session.replace(title, " ");
+                        content = content.replace("#", " ");
+                        this.descriptionSession.push({title, content});
                     }
-                    let content = session.replace(title, " ");
-                    content = content.replace("#", " ");
-                    this.descriptionSession.push({title, content});
-                }
-            });
-
-            /*SESSÃO REMOVIDA PELA COMPLEXIDADE DA INFORMAÇÃO DADA PELA API-->*/
-            /*let tableArray = tclass.table.split("|");
-            let i = 13;
-            for (i; i < tableArray.length; i++) {
-
-                this.table.push(tableArray[i]);
-                console.log(tableArray[i]);
-            }*/
-        })
+                });
+        });
     },
     data() {
         return {
@@ -94,7 +84,20 @@ export default {
 </script>
 
 <style scoped>
+
+    p {
+        margin-bottom: 0 !important;
+    }
     .image {
         width: 200px;
     }
+
+    .spacing {
+        padding: 10px 0px 10px 0px;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+    
 </style>

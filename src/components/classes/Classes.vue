@@ -1,13 +1,16 @@
 <template>
   <v-container fluid>
     <v-row dense>
-      <v-col v-for="tclass in classes" :key="tclass.name" cols="12" md="4"> 
+      <v-col v-for="tclass in classes" :key="tclass.name"
+             cols="12"
+             md="4"> 
         <t-card-image @goToClass="goToClass(tclass)" :key="tclass.name"
                       :name="tclass.name"
                       :src="tclass.src"
                       :desc="tclass.desc"
                       :hitDice="tclass.hitDice"
-                      :profSavingThrows="tclass.profSavingThrows"></t-card-image>
+                      :profSavingThrows="tclass.profSavingThrows">
+        </t-card-image>
       </v-col>
     </v-row>
   </v-container>
@@ -37,7 +40,8 @@
     }),
     methods: {
       goToClass(tclass) {
-        this.$router.push({name: 'classDetail', params: {class: tclass.name.toLowerCase()}});
+        this.$router.push({name: 'classDetail', 
+                          params: {class: tclass.name.toLowerCase()}});
       }
     }
   }

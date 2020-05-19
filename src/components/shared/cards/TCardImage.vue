@@ -7,20 +7,26 @@
              contain 
              :src="src">
         <v-card-title class="text--primary" 
-                      v-text="name"></v-card-title>
+                      v-text="name">
+        </v-card-title>
       </v-img>
-
       <v-card-text class="text--primary">
           <div>{{ desc.substring(1, 250) }} ...</div>
       </v-card-text>
       <v-divider class="mx-4"></v-divider>
       <v-card-subtitle>
-        <span class="bold">Dice Hit:</span> {{ hitDice }} 
-        <span class="bold">Saving Throws:</span> {{ profSavingThrows }} 
+        <p>
+          <span class="bold">Dice Hit:</span> 
+          {{ hitDice }} 
+        </p>
+        <p>
+          <span class="bold">Saving Throws:</span> 
+          {{ profSavingThrows }}
+        </p> 
       </v-card-subtitle>
-
       <v-card-actions>
-        <v-btn text color="black accent-4" @click="goToClass()">
+        <v-btn text color="black accent-4"
+               @click="goToClass()">
           View Details
       </v-btn>
       </v-card-actions>
@@ -62,6 +68,10 @@
 </script>
 
 <style scoped>
+
+    p {
+      margin-bottom: 0 !important;
+    }
     .t-card-image {
         width: 100%;
         height: auto;
@@ -70,4 +80,5 @@
     .bold {
        font-weight: bold;
     }
+    
 </style>

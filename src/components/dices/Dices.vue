@@ -23,7 +23,7 @@
           </div>
       </v-col>
     </v-row>
-    <v-alert v-show="required" type="error">
+    <v-alert v-show="!required" type="error">
         {{ $ml.get('required-fiels') }}
     </v-alert>
     <t-dice-list></t-dice-list>
