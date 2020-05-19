@@ -18,7 +18,19 @@ export default new MLCreate({
       'required-fiels': 'Required fields...',
       'roll': 'Roll',
       'result-of': 'Result of ',
-      'dice-list': 'Dice List'
+      'dice-list': 'Dice List',
+      'hit-points': 'Hit Points',
+      'hit-dice': 'Hit Dice:',
+      'hit-points-1lvl': 'Hit Points at 1st Level:',
+      'hit-points-highlvl': 'Hit Points at Higher Levels:',
+      'proficiences': 'Proficiencies',
+      'armor': 'Armor:',
+      'weapons': 'Weapons:',
+      'saving-throws': 'Saving Throws:',
+      'skills': 'Skills:',
+      'equipment': 'Equipment',
+      'class-ability': 'Class Abilities',
+      'view-details': 'View Details'
     }),
  
     new MLanguage('portuguese').create({
@@ -32,7 +44,19 @@ export default new MLCreate({
       'required-fiels': 'Campos Obrigatórios...',
       'roll': 'Rolar',
       'Result of = ': 'Resultado do ',
-      'dice-list': 'Lista de Dados'
+      'dice-list': 'Lista de Dados',
+      'hit-points': 'Pontos de Vida',
+      'hit-dice': 'Rolagem de Dado:',
+      'hit-points-1lvl': 'Pontos de vida no nível 1:',
+      'hit-points-highlvl': 'Pontos de vida no nível máximo:',
+      'proficiences': 'Proficiências',
+      'armor': 'Armadura:',
+      'weapons': 'Armas:',
+      'saving-throws': 'Atributos básicos:',
+      'skills': 'Habilidades:',
+      'equipment': 'Equipamentos',
+      'class-ability': 'Habilidades da classe',
+      'view-details': 'Visualizar Detalhes'
     })
   ]
 })

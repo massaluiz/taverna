@@ -3,39 +3,39 @@
         <v-card-text>
             <h1>{{ tclass.name }}</h1>
             <v-img :src="tclass.src" class="image"></v-img>
-            <h2 class="spacing">Hit Points</h2>
+            <h2 class="spacing">{{ $ml.get('hit-points') }}</h2>
             <p>
-                <span class="bold">Hit Dice:</span> 
+                <span class="bold">{{ $ml.get('hit-dice') }}</span> 
                 {{ tclass.hitDice }}
             </p>
             <p>
-                <span class="bold">Hit Points at 1st Level:</span>
+                <span class="bold">{{ $ml.get('hit-points-1lvl') }}</span>
                  {{ tclass.hpAt1stLevel }}
             <p>
             <p>
-                <span class="bold">Hit Points at Higher Levels:</span>
+                <span class="bold">{{ $ml.get('hit-points-highlvl') }}</span>
                 {{ tclass.hpAtHigherLevels }}
             </p>
-            <h2 class="spacing">Proficiencies</h2>
+            <h2 class="spacing">{{ $ml.get('proficiences') }}</h2>
             <p>
-                <span class="bold">Armor:</span> 
+                <span class="bold">{{ $ml.get('armor') }}</span> 
                 {{ tclass.profArmor }}
             </p>
             <p>
-                <span class="bold">Weapons:</span> 
+                <span class="bold">{{ $ml.get('weapons') }}</span> 
                 {{ tclass.profWeapons }}
             </p>
             <p>
-                <span class="bold">Saving Throws:</span> 
+                <span class="bold">{{ $ml.get('saving-throws') }}</span> 
                 {{ tclass.profSavingThrows }}
             </p>
             <p>
-                <span class="bold">Skills:</span> 
+                <span class="bold">{{ $ml.get('skills') }}</span> 
                 {{ tclass.profSkills }}
             </p>
-            <h2 class="spacing">Equipment</h2>
+            <h2 class="spacing">{{ $ml.get('equipment') }}</h2>
             <p>{{ tclass.equipment }}</p>
-            <h2 class="spacing">Class Abilities</h2>
+            <h2 class="spacing">{{ $ml.get('class-ability') }}</h2>
             <div v-for="session of descriptionSession" :key="session.id">
                 <h2 class="spacing">{{ session.title }}</h2>
                 <p>{{ session.content }}</p>

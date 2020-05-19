@@ -16,18 +16,18 @@
       <v-divider class="mx-4"></v-divider>
       <v-card-subtitle>
         <p>
-          <span class="bold">Dice Hit:</span> 
+          <span class="bold">{{ $ml.get('hit-dice') }}</span> 
           {{ hitDice }} 
         </p>
         <p>
-          <span class="bold">Saving Throws:</span> 
+          <span class="bold">{{ $ml.get('saving-throws') }}</span> 
           {{ profSavingThrows }}
         </p> 
       </v-card-subtitle>
       <v-card-actions>
         <v-btn text color="black accent-4"
                @click="goToClass()">
-          View Details
+          {{ $ml.get('view-details') }}
       </v-btn>
       </v-card-actions>
     </v-card> 
