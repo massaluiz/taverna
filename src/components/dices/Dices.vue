@@ -26,7 +26,7 @@
     <v-alert v-show="!required" type="error">
         {{ $ml.get('required-fiels') }}
     </v-alert>
-    <t-dice-list></t-dice-list>
+    <t-dice-list :key="componentKey"></t-dice-list>
   </v-container>
 </template>
 
@@ -49,7 +49,8 @@ export default {
           name: '',
           sides:''
       },
-      required: true
+      required: true,
+      componentKey: 0
     }),
     methods: {
         create() {
@@ -64,6 +65,7 @@ export default {
                 dices.push(this.dice);
                 localStorage.setItem('dices', JSON.stringify(dices));
                 this.dice = {name: '',sides:''};
+                this.componentKey += 1; 
                 return {inserted: this.required, dice: insertedDice};
 
             } else {
