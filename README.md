@@ -1,6 +1,6 @@
 # Taverna
 
-Esse projeto tem a finalidade academica de estudo do framework front-end vue.js. Seu objetivo é a criação de uma arquitetura simples, entretanto usando as melhores práticas para ser eficiênte, arrojada e com enfase na execelencia técnica para dar apoio ao desenvolvimento. 
+Esse projeto tem a finalidade academica de estudo do framework front-end vue.js. Seu objetivo é a criação de uma arquitetura simples, entretanto usando as melhores práticas para ser eficiênte, arrojada e com enfase na excelência técnica para dar apoio ao desenvolvimento. 
 
 ## Iniciando
 
